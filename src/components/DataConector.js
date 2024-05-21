@@ -1,20 +1,12 @@
 import axios from 'axios';
 
-const ip='notificationsb.dev2.rastreo.gs';
-const protocol='https';
-const apiURl=`${protocol}://${ip}/`;
-
-
-/*const ip='10.0.0.229:9093';
-const protocol='http';
-const apiURl=`${protocol}://${ip}/`;*/
-
+const apiURl = process.env.VUE_APP_ROOT_URL;
 
 export async function auth(user, pass){
 
    let data;
 
- await axios.get(apiURl+`auth/validar/${user}/${pass}`).then(response=>{
+ await axios.get(apiURl+`/auth/validar/${user}/${pass}`).then(response=>{
     data=response.data;
 
    }).catch(error => {
@@ -28,7 +20,7 @@ export async function buscar_filtro(parametros){
 
    let data;
 
- await axios.post(apiURl+'data/buscarfiltro',parametros).then(response=>{
+ await axios.post(apiURl+'/data/buscarfiltro',parametros).then(response=>{
     data=response.data;
       
    }).catch(error => {
@@ -47,7 +39,7 @@ export async function filterNew(id_client, group_id){
    "group_id":group_id
 }
 
- await axios.post(apiURl+'data/filter',param).then(response=>{
+ await axios.post(apiURl+'/data/filter',param).then(response=>{
     data=response.data;
       
    }).catch(error => {
@@ -70,7 +62,7 @@ export async function users(id_client){
       "id_client":id_client 
    }
 
- await axios.post(apiURl+'auth/usuarios',param).then(response=>{
+ await axios.post(apiURl+'/auth/usuarios',param).then(response=>{
     data=response.data;
       
    }).catch(error => {
@@ -91,7 +83,7 @@ export async function setPriority(client_id, id, event){
       "event":event
    }
 
- await axios.post(apiURl+'data/setpriority',param).then(response=>{
+ await axios.post(apiURl+'/data/setpriority',param).then(response=>{
     data=response.data;
       
    }).catch(error => {
@@ -111,7 +103,7 @@ let param={
    "ack":ack, 
    "clasificacion":clasificacion
 }
-   await axios.post(apiURl+'data/count', param ).then(response => {
+   await axios.post(apiURl+'/data/count', param ).then(response => {
       data=response
 
    }).catch(error => {
@@ -128,7 +120,7 @@ let param={
    "client_id":client_id
 }
 
-await axios.post(apiURl+'data/trackers',param ).then(response => {
+await axios.post(apiURl+'/data/trackers',param ).then(response => {
       data=response
    }).catch(error => {
       console.log(error)
@@ -142,7 +134,7 @@ let param={
    "client_id":client_id
 }
 
-await axios.post(apiURl+'data/groups',param ).then(response => {
+await axios.post(apiURl+'/data/groups',param ).then(response => {
       data=response
    }).catch(error => {
       console.log(error)
@@ -159,7 +151,7 @@ let param={
    "id":id
 }
 
-await axios.post(apiURl+'data/priorities',param ).then(response => {
+await axios.post(apiURl+'/data/priorities',param ).then(response => {
       data=response
    }).catch(error => {
       console.log(error)
@@ -173,7 +165,7 @@ let param={
    "client_id":client_id
 }
 
-await axios.post(apiURl+'data/prioritie',param ).then(response => {
+await axios.post(apiURl+'/data/prioritie',param ).then(response => {
       data=response
    }).catch(error => {
       console.log(error)
@@ -190,7 +182,7 @@ let param={
    "id":id
 }
 
-await axios.post(apiURl+'data/setcolores',param ).then(response => {
+await axios.post(apiURl+'/data/setcolores',param ).then(response => {
       data=response
    }).catch(error => {
       console.log(error)
@@ -205,7 +197,7 @@ let data;
 let param={
    "client_id":client_id
 }
-await axios.post(apiURl+'data/eventlist',param ).then(response => {
+await axios.post(apiURl+'/data/eventlist',param ).then(response => {
       data=response
    }).catch(error => {
       console.log(error)
@@ -225,7 +217,7 @@ let param={
    "ack" : ack
 }
 
-   await axios.post(apiURl+'data/notificationsall',param).then(response => {
+   await axios.post(apiURl+'/data/notificationsall',param).then(response => {
       data=response
    }).catch(error => {
       console.log(error)
@@ -244,7 +236,7 @@ let data;
 let param={
    "client_id" : client_id
 }
-   await axios.post(apiURl+'data/notificationsdone',param).then(response => {
+   await axios.post(apiURl+'/data/notificationsdone',param).then(response => {
       data=response
    }).catch(error => {
       console.log(error)
@@ -256,7 +248,7 @@ let param={
 
 export async function isNewData(){
 let data;
- await axios.get(apiURl+`data/isnewdata`).then(response=>{
+ await axios.get(apiURl+`/data/isnewdata`).then(response=>{
    data=response.data;
    }).catch(error => {
       console.log(error.response.data)
@@ -273,7 +265,7 @@ export async function updateDatos(datos){
 
  /* console.log(datos)*/
 let data;
- await axios.get(apiURl+`update/${id}/${userid}/${user_name}/${comentario}/`).then(response=>{
+ await axios.get(apiURl+`/update/${id}/${userid}/${user_name}/${comentario}/`).then(response=>{
    data=response.data;
       
    }).catch(error => {

@@ -5,6 +5,12 @@
 npm install
 ```
 
+### Create the .env variables
+```
+VUE_APP_ROOT_URL = https://notificationsb.dev2.rastreo.gs
+
+```
+
 ### Compiles and hot-reloads for development
 ```
 npm run serve
