@@ -1,4 +1,4 @@
-# a24
+# A24
 
 ## Project setup
 ```
