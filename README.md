@@ -1,4 +1,4 @@
-# A24
+# notification Manager Alertas
 
 ## Project setup
 ```
@@ -21,10 +21,6 @@ npm run serve
 npm run build
 ```
 
-### Lints and fixes files
-```
-npm run lint
-```
+### Public Web Site
+See (https://notifications.dev2.rastreo.gs/).
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
